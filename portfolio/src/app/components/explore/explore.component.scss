@@ -1,0 +1,58 @@
+@keyframes explore-title-show {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: traslateY(0);
+  }
+}
+
+@keyframes explore-desc-show {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: traslateY(0);
+  }
+}
+
+#explore-image {
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../../../assets/explore.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #explore-text {
+    color: #e6e6fa;
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      font-weight: 400;
+      font-size: 3em;
+      letter-spacing: 3px;
+      margin-bottom: 24px;
+
+      animation-name: explore-title-show;
+      animation-duration: 2s;
+    }
+
+    p {
+      font-size: 1.5em;
+      animation-name: explore-desc-show;
+      animation-duration: 2s;
+    }
+  }
+}
