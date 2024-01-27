@@ -10,6 +10,10 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { AboutComponent } from './components/about/about.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { CvComponent } from './components/cv/cv.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { TouchComponent } from './components/touch/touch.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { ExperienceComponent } from './components/experience/experience.componen
     ExploreComponent,
     AboutComponent,
     ServicesComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    CvComponent,
+    ProjectsComponent,
+    TouchComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
