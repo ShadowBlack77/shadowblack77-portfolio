@@ -1,11 +1,11 @@
 <main>
-  <app-header (animationStateChanged)="handleAnimationStateChange($event)" />
-  <app-explore />
-  <app-about />
-  <app-services />
-  <app-experience />
+  <app-header [currentSection]="whatIsInView" />
+  <app-explore #exploreSection />
+  <app-about #aboutMeSection />
+  <app-services #servicesSection />
+  <app-experience #experienceSection />
   <app-cv />
-  <app-projects />
-  <app-touch />
+  <app-projects #projectsSection />
+  <app-touch #touchSection />
   <app-footer />
 </main>

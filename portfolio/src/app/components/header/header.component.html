@@ -5,10 +5,10 @@
     </a>
   </div>
   <nav>
-    <a href="#about-me">About</a>
-    <a href="#services">Services</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#get-in-touch">Contact</a>
+    <a routerLink="" [fragment]="'about-me'" [ngClass]="{'active-link': currentSection === 'about'}">About</a>
+    <a routerLink="" [fragment]="'services'" [ngClass]="{'active-link': currentSection === 'services'}">Services</a>
+    <a routerLink="" [fragment]="'experience'" [ngClass]="{'active-link': currentSection === 'experience'}" >Experience</a>
+    <a routerLink="" [fragment]="'projects'" [ngClass]="{'active-link': currentSection === 'projects'}">Projects</a>
+    <a routerLink="" [fragment]="'get-in-touch'" [ngClass]="{'active-link': currentSection === 'touch'}" >Contact</a>
   </nav>
 </header>

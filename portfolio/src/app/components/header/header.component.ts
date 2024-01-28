@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Output } from "@angular/core";
+import { Component, EventEmitter, HostListener, Output, Input } from "@angular/core";
 import { trigger, state, style, animate, transition, animation } from "@angular/animations";
  
 @Component({
@@ -28,9 +28,11 @@ export class HeaderComponent {
   animationState = 'start';
 
   @Output() animationStateChanged = new EventEmitter<string>();
+
+  @Input() currentSection: string = '';
   
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: any) {
+  @HostListener('window:scroll')
+  onScroll() {
     if (window.scrollY > 1) {
       this.setAnimationState('end');
     } else {

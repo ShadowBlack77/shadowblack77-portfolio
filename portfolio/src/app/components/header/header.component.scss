@@ -8,7 +8,7 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 9999;
+  z-index: 999;
 }
 
 a {
@@ -25,8 +25,17 @@ nav a {
   text-decoration: none;
   color: #e6e6fa;
   transition: color .4s;
+  padding: 4px 8px;
+}
+
+nav .active-link{
+  border-bottom: 1px solid #e6e6fa;
+}
+
+nav .active-link:hover{
+  border-bottom: 1px solid #ababc4;
 }
 
 nav a:hover {
-  color: #124559;
+  color: #ababc4;
 }
