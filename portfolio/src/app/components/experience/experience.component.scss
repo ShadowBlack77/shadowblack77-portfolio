@@ -34,6 +34,14 @@
         flex-direction: column;
         justify-content: space-evenly;
         height: 400px;
+        .technology-name {
+          opacity: 0;
+          user-select: none;
+          transition: .4s;
+        }
+        .show {
+          opacity: 1;
+        }
         #row-one{
           display: flex;
           justify-content: space-evenly;

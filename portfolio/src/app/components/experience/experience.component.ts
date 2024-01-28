@@ -25,6 +25,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 
 export class ExperienceComponent {
   @ViewChild('experienceElement') experienceElement!: ElementRef;
+  showedIndex: number | null = null;
 
   experienceAnimationState = 'start';
 
@@ -43,6 +44,20 @@ export class ExperienceComponent {
     } else {
       // this.experienceAnimationState = 'start';
     }
+  }
+
+  showText(event: MouseEvent, index: number) : void {
+    this.showedIndex = index;
+  }
+
+  resetShowText(index: number): void {
+    if (this.showedIndex === index) {
+      this.showedIndex = null;
+    }
+  }
+
+  isShowedText(index: number): boolean {
+    return this.showedIndex === index;
   }
 
   @HostListener('window:scroll')

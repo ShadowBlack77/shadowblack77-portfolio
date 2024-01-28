@@ -9,39 +9,39 @@
    <div id="experience-gallery">
     <div id="icons">
       <div id="row-one">
-        <div>
+        <div (mouseenter)="showText($event, 1)" (mouseleave)="resetShowText(1)">
           <img src="../../../assets/icons/html5.png" alt="html5">
-          <p>HTML5</p>
+          <p class="technology-name" [class.show]="isShowedText(1)">HTML5</p>
         </div>
-        <div>
+        <div (mouseenter)="showText($event, 2)" (mouseleave)="resetShowText(2)">
           <img src="../../../assets/icons/css3.png" alt="css3">
-          <p>CSS3</p>
+          <p class="technology-name" [class.show]="isShowedText(2)">CSS3</p>
         </div>
-        <div>
+        <div (mouseenter)="showText($event, 3)" (mouseleave)="resetShowText(3)">
           <img src="../../../assets/icons/sass.png" alt="sass">
-          <p>Sass</p>
+          <p class="technology-name" [class.show]="isShowedText(3)">Sass</p>
         </div>
-        <div>
+        <div (mouseenter)="showText($event, 4)" (mouseleave)="resetShowText(4)">
           <img src="../../../assets/icons/js.png" alt="js">
-          <p>JavaScript</p>
+          <p class="technology-name" [class.show]="isShowedText(4)">JavaScript</p>
         </div>
       </div>
       <div id="row-two">
-        <div>
+        <div (mouseenter)="showText($event, 5)" (mouseleave)="resetShowText(5)">
           <img src="../../../assets/icons/jquery.png" alt="jQuery">
-          <p>jQuery</p>
+          <p class="technology-name" [class.show]="isShowedText(5)">jQuery</p>
         </div>
-        <div>
+        <div (mouseenter)="showText($event, 6)" (mouseleave)="resetShowText(6)">
           <img src="../../../assets/icons/angular.png" alt="angular">
-          <p>Angular</p>
+          <p class="technology-name" [class.show]="isShowedText(6)">Angular</p>
         </div>
-        <div>
+        <div (mouseenter)="showText($event, 7)" (mouseleave)="resetShowText(7)">
           <img src="../../../assets/icons/nodejs.png" alt="nodejs">
-          <p>NodeJS</p>
+          <p class="technology-name" [class.show]="isShowedText(7)">NodeJS</p>
         </div>
-        <div>
+        <div (mouseenter)="showText($event, 8)" (mouseleave)="resetShowText(8)">
           <img src="../../../assets/icons/mysql.png" alt="sql">
-          <p>MySQL</p>
+          <p class="technology-name" [class.show]="isShowedText(8)">MySQL</p>
         </div>
       </div>
     </div>
