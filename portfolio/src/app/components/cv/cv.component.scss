@@ -1,6 +1,6 @@
 #cv {
   width: 100%;
-  height: 400px;
+  height: 300px;
   background-image: url(../../../assets/cv.jpg);
   background-size: cover;
   background-position: center;
@@ -20,7 +20,7 @@
       h2 {
         text-align: center;
         font-weight: 300;
-        font-size: 4em;
+        font-size: 3em;
       }
     }
 
@@ -30,15 +30,15 @@
         background-color: transparent;
         color: #e6e6fa;
         border: none;
-        font-size: 2em;
+        font-size: 1.5em;
         border: 1px solid #e6e6fa;
-        padding: 24px 48px;
+        padding: 12px 24px;
         transition: .4s;
         cursor: pointer;
       }
 
       button:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
     }
   }
