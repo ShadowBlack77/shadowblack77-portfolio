@@ -34,9 +34,9 @@ export class ExperienceComponent {
     const rect = element.getBoundingClientRect();
 
     const isInViewport = 
-      rect.top >= 0 &&
+      rect.top >= -800 &&
       rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + 300 &&
       rect.right <= (window.innerWidth || document.documentElement.clientWidth);
 
     if (isInViewport) {

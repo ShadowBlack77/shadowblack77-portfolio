@@ -12,3 +12,15 @@
   font-family: 'Montserrat', sans-serif;
   scroll-behavior: smooth;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #01161e;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e6e6fa;
+}

@@ -17,6 +17,7 @@ export class AppComponent {
 
   checkIsExploreElementInViewport() {
     const element = this.exploreSection.nativeElement;
+    
     const rect = element.getBoundingClientRect();
 
     const isInViewport = 
@@ -46,8 +47,11 @@ export class AppComponent {
   }
 
   checkIsServicesElementInViewport() {
-    const element = this.servicesSection.nativeElement;
+    const element = this.servicesSection.nativeElement.querySelector('#first-element');
+    const lastElement = this.servicesSection.nativeElement.querySelector('#last-element');
+
     const rect = element.getBoundingClientRect();
+    const lastRect = lastElement.getBoundingClientRect();
 
     const isInViewport = 
       rect.top >= 0 &&
@@ -55,14 +59,23 @@ export class AppComponent {
       rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
       rect.right <= (window.innerWidth || document.documentElement.clientWidth);
 
-    if (isInViewport) {
+    const isInLastViewport = 
+      lastRect.top >= 0 &&
+      lastRect.left >= 0 &&
+      lastRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      lastRect.right <= (window.innerWidth || document.documentElement.clientWidth);
+
+    if (isInViewport || isInLastViewport) {
       this.whatIsInView = 'services'
     }
   }
 
   checkIsExperienceElementInViewport() {
-    const element = this.experienceSection.nativeElement;
+    const element = this.experienceSection.nativeElement.querySelector('#experience-desc');
+    const lastElement = this.experienceSection.nativeElement.querySelector('#more-experience-desc');
+
     const rect = element.getBoundingClientRect();
+    const lastRect = lastElement.getBoundingClientRect();
 
     const isInViewport = 
       rect.top >= 0 &&
@@ -70,22 +83,37 @@ export class AppComponent {
       rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
       rect.right <= (window.innerWidth || document.documentElement.clientWidth);
 
-    if (isInViewport) {  
+    const isLastInViewport = 
+      lastRect.top >= 0 &&
+      lastRect.left >= 0 &&
+      lastRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      lastRect.right <= (window.innerWidth || document.documentElement.clientWidth);
+
+    if (isInViewport || isLastInViewport) {  
       this.whatIsInView = 'experience';
     }
   }
 
   checkIsProjectsElementInViewport() {
-    const element = this.projectsSection.nativeElement;
+    const element = this.projectsSection.nativeElement.querySelector('#project-header');
+    const lastElement = this.projectsSection.nativeElement.querySelector('#projects-btn');
+
     const rect = element.getBoundingClientRect();
+    const lastRect = lastElement.getBoundingClientRect();
 
     const isInViewport = 
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth);
 
-    if (isInViewport) {  
+    const isLastInViewport = 
+      lastRect.top >= 0 &&
+      lastRect.left >= 0 &&
+      lastRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      lastRect.right <= (window.innerWidth || document.documentElement.clientWidth);
+
+    if (isInViewport || isLastInViewport) {  
       this.whatIsInView = 'projects';
     }
   }

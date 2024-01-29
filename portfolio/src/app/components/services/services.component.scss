@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
 
   .service{
     color:  #e6e6fa;
@@ -50,5 +51,24 @@
 
   .service:hover {
     box-shadow: 0px 0px 15px black;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #services {
+    .service {
+      width: 250px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #services {
+    padding: 48px 0;
+    height: auto;
+    .service {
+      width: 250px;
+      margin: 12px 0;
+    }
   }
 }

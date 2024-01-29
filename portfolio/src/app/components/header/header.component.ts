@@ -1,5 +1,5 @@
-import { Component, EventEmitter, HostListener, Output, Input } from "@angular/core";
-import { trigger, state, style, animate, transition, animation } from "@angular/animations";
+import { Component, EventEmitter, HostListener, Output, Input, ViewChild, ElementRef } from "@angular/core";
+import { trigger, state, style, animate, transition } from "@angular/animations";
  
 @Component({
   selector: 'app-header',
@@ -21,18 +21,33 @@ import { trigger, state, style, animate, transition, animation } from "@angular/
       transition('end => start', [
         animate('.5s ease-in-out')
       ])
-    ])
+    ]),
   ]
 })
 export class HeaderComponent {
+  @ViewChild('hamburgerMenu', { read: ElementRef }) hamburgerMenu!: ElementRef;
+  
+  @Output() animationStateChanged = new EventEmitter<string>();
+  @Input() currentSection: string = '';
+
   animationState = 'start';
 
-  @Output() animationStateChanged = new EventEmitter<string>();
+  isHamburgerMenuOpen: boolean = false;
+  isTextMenuShowed: boolean = false;
+  isButtonClicked: boolean = false;
+  isScrolled: boolean = true;
 
-  @Input() currentSection: string = '';
-  
   @HostListener('window:scroll')
   onScroll() {
+    if(this.isHamburgerMenuOpen && this.isScrolled) {
+      this.isScrolled = false;
+      setTimeout(() => {
+        this.isHamburgerMenuOpen = !this.isHamburgerMenuOpen;
+        this.isScrolled = true;
+      }, 1000);
+      this.isTextMenuShowed = !this.isTextMenuShowed;
+    }
+
     if (window.scrollY > 1) {
       this.setAnimationState('end');
     } else {
@@ -45,5 +60,31 @@ export class HeaderComponent {
       this.animationState = state;
       this.animationStateChanged.emit(state);
     }
+  }
+
+  onHamBtnClick() {
+    if (!this.isButtonClicked) { 
+      this.isButtonClicked = !this.isButtonClicked;
+
+      if (this.isHamburgerMenuOpen) {
+        setTimeout(() => {
+          this.isHamburgerMenuOpen = !this.isHamburgerMenuOpen;
+        }, 1000)
+      } else {
+        this.isHamburgerMenuOpen = !this.isHamburgerMenuOpen;
+      }
+  
+      if (!this.isTextMenuShowed) {
+        setTimeout(() => {
+          this.isTextMenuShowed = !this.isTextMenuShowed;
+        }, 1000);
+      } else {
+        this.isTextMenuShowed = !this.isTextMenuShowed;
+      }
+    }
+
+    setTimeout(() => {
+      this.isButtonClicked = !this.isButtonClicked;
+    }, 1000)
   }
 }

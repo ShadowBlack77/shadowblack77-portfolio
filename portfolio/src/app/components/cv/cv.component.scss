@@ -43,3 +43,15 @@
     }
   }
 }
+
+@media only screen and (max-width: 425px) {
+  #cv {
+    #cv-content {
+      #cv-title {
+        h2 {
+          font-size: 2em;
+        }
+      }
+    }
+  }
+}

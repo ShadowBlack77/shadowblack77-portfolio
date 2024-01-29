@@ -27,3 +27,9 @@
     transform: scale(1.05);
   }
 }
+
+@media only screen and (max-width: 425px) {
+  #get-in-touch {
+    text-align: center;
+  }
+}

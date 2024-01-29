@@ -1,9 +1,9 @@
 <section id="projects">
   <div id="project-header">
-    <h2>Selected Projects</h2>
+    <h2 #projectTitle [@projectTitleAnimation]="projectTitleState">Selected Projects</h2>
   </div>
   <div id="selected-projects">
-    <div class="project">
+    <div class="project" #projectOne [@projectOneAnimation]="projectOneState">
       <div class="project-description">
         <div>
           <h3>Projekt1</h3>
@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div class="project">
+    <div class="project" #projectTwo [@projectTwoAnimation]="projectTwoState">
       <div class="project-description">
         <div>
           <h3>Projekt2</h3>
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="project">
+    <div class="project" #projectThree [@projectThreeAnimation]="projectThreeState">
       <div class="project-description">
         <div>
           <h3>Projekt3</h3>
@@ -36,7 +36,7 @@
         </div>
       </div>
     </div> 
-    <div class="project">
+    <div class="project" #projectFour [@projectFourAnimation]="projectFourState">
       <div class="project-description">
         <div>
           <h3>Projekt4</h3>
@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-    <div class="project">
+    <div class="project" #projectFive [@projectFiveAnimation]="projectFiveState">
       <div class="project-description">
         <div>
           <h3>Projekt5</h3>
@@ -58,7 +58,7 @@
         </div>
       </div>
     </div>
-    <div class="project">
+    <div class="project" #projectSix [@projectSixAnimation]="projectSixState">
       <div class="project-description">
         <div>
           <h3>Projekt6</h3>
@@ -69,5 +69,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <div id="projects-btn">
+    <a href="">
+      More Projects here
+    </a>
   </div>
 </section>

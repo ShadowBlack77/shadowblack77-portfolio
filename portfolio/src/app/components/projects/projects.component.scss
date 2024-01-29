@@ -20,7 +20,7 @@
     .project {
       position: relative;
       margin: 24px 0;
-      flex-basis: calc(33% - 24px); /* 16px to uwzględnienie marginesu */
+      flex-basis: calc(33% - 24px);
       max-width: calc(33% - 24x);
       height: 300px;
       background-color: transparent;
@@ -77,6 +77,45 @@
     .project:hover {
       .project-description {
         opacity: 1;
+      }
+    }
+  }
+
+  #projects-btn {
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+    a {
+      text-decoration: none;
+      color: #e6e6fa;
+      display: block;
+      background-color: #124559;
+      padding: 12px 24px;
+      transition: .4s;
+    }
+    a:hover {
+      background-color: #295d72;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #projects {
+    #selected-projects {
+      .project {
+        flex-basis: calc(50% - 24px);
+        max-width: calc(50% - 24x);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #projects {
+    #selected-projects {
+      .project {
+        flex-basis: calc(100% - 24px);
+        max-width: calc(100% - 24x);
       }
     }
   }

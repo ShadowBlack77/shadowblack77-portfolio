@@ -11,4 +11,14 @@
     <a routerLink="" [fragment]="'projects'" [ngClass]="{'active-link': currentSection === 'projects'}">Projects</a>
     <a routerLink="" [fragment]="'get-in-touch'" [ngClass]="{'active-link': currentSection === 'touch'}" >Contact</a>
   </nav>
+  <div id="ham-menu-btn">
+    <button id="ham-menu" (click)="onHamBtnClick()">
+      <div>
+        <hr />
+        <hr />
+        <hr />
+      </div>
+    </button>
+  </div>
 </header>
+<app-hamburger-menu #hamburgerMenu [textInMenu]="isTextMenuShowed" [isMenuOpened]="isHamburgerMenuOpen" [currentSection]="currentSection" />

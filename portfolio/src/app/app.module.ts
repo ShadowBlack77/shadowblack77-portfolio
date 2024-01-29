@@ -14,6 +14,7 @@ import { CvComponent } from './components/cv/cv.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { TouchComponent } from './components/touch/touch.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ProjectsComponent,
     TouchComponent,
     FooterComponent,
+    HamburgerMenuComponent
   ],
   imports: [
     BrowserModule,
