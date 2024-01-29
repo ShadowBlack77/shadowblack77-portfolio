@@ -8,10 +8,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   animations: [
     trigger('blockOne', [
       state('start', style({
-        opacity: 0
+        opacity: 0,
       })),
       state('end', style({
-        opacity: 1
+        opacity: 1,
       })),
       transition('start => end', [
         animate('1s ease-in-out')

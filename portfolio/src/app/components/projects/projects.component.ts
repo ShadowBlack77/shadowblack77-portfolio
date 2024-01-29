@@ -22,10 +22,11 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ]),
     trigger('projectOneAnimation', [
       state('start', style({
-        opacity: 0
+        opacity: 0,
+        pointerEvents: 'none'
       })),
       state('end', style({
-        opacity: 1
+        opacity: 1,
       })),
       transition('start => end', [
         animate('1s .3s ease-in-out')
@@ -36,7 +37,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ]),
     trigger('projectTwoAnimation', [
       state('start', style({
-        opacity: 0
+        opacity: 0,
+        pointerEvents: 'none'        
       })),
       state('end', style({
         opacity: 1
@@ -50,7 +52,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ]),
     trigger('projectThreeAnimation', [
       state('start', style({
-        opacity: 0
+        opacity: 0,
+        pointerEvents: 'none'
       })),
       state('end', style({
         opacity: 1
@@ -64,7 +67,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ]),
     trigger('projectFourAnimation', [
       state('start', style({
-        opacity: 0
+        opacity: 0,
+        pointerEvents: 'none'
       })),
        state('end', style({
         opacity: 1
@@ -78,7 +82,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ]),
     trigger('projectFiveAnimation', [
       state('start', style({
-        opacity: 0
+        opacity: 0,
+        pointerEvents: 'none'
       })),
        state('end', style({
         opacity: 1
@@ -92,10 +97,11 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ]),
     trigger('projectSixAnimation', [
       state('start', style({
-        opacity: 0
+        opacity: 0,
+        pointerEvents: 'none'
       })),
        state('end', style({
-        opacity: 1
+        opacity: 1,
        })),
        transition('start => end', [
         animate('1s 1.8s ease-in-out')
@@ -113,7 +119,7 @@ export class ProjectsComponent {
   @ViewChild('projectThree') projectThree!: ElementRef;
   @ViewChild('projectFour') projectFour!: ElementRef;
   @ViewChild('projectFive') projectFive!: ElementRef;
-  @ViewChild('projectSix') projectSix!: ElementRef;
+  @ViewChild('projectSix', { read: ElementRef }) projectSix!: ElementRef;
 
   projectTitleState = 'start';
   projectOneState = 'start';
