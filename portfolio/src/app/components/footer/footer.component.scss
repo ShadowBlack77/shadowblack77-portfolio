@@ -8,7 +8,8 @@ footer {
   justify-content: space-evenly;
 
   #footer-btns {
-    button {
+    display: flex;
+    a {
       background-color: #05212c;
       color: #e6e6fa;
       border: none;
@@ -17,8 +18,9 @@ footer {
       cursor: pointer;
       margin: 0 6px;
       transition: .4s;
+      display: block;
     }
-    button:hover{
+    a:hover{
       transform: scale(1.1);
     }
   }
