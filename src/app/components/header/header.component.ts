@@ -46,6 +46,10 @@ export class HeaderComponent {
 
   @HostListener('window:scroll')
   onScroll() {
+    if (scrollY === 0) {
+      this.currentSection = 'about';
+    }
+
     if(this.isHamburgerMenuOpen && this.isScrolled) {
       this.isScrolled = false;
       setTimeout(() => {
