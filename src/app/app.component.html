@@ -1,0 +1,41 @@
+<main>
+  <app-header [currentSection]="whatIsInView" />
+  <section #bannerSection id="banner-section">
+    <app-baner />
+  </section>
+  <section #aboutSection id="about-section" >
+    @defer (on viewport(aboutSection)) {
+      <app-about animState="end" />
+    }
+  </section>
+  <section #serviceSection id="service-section">
+    @defer (on viewport(serviceSection)) {
+      <app-services animState="end" />
+    } 
+  </section>
+  <section #experienceSection id="experience-section">
+    @defer (on viewport(experienceSection)) {
+      <app-experience animState="end" />
+    }
+  </section>
+  <section #cvSection id="cv-section">
+    @defer (on viewport(cvSection)) {
+      <app-cv animState="end" />
+    }
+  </section>
+  <section #projectsSection id="project-section">
+    @defer (on viewport(projectsSection)) {
+      <app-projects animState="end" />
+    }
+  </section>
+  <section #touchSection id="touch-section">
+    @defer (on viewport(touchSection)) {
+      <app-touch animState="end" />
+    }
+  </section>
+  <section #footerSection id="footer-section">
+    @defer (on viewport(footerSection )) {
+      <app-footer animState="end" />
+    }
+  </section>
+</main>

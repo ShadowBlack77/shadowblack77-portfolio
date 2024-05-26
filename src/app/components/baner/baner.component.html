@@ -1,0 +1,13 @@
+<div id="explore-image" #baner>
+  @defer (on viewport(baner)) {
+    <div id="explore-text">
+      <h2 [@h2Animation]="animationBanerState">
+        Hello, I'm Daniel
+      </h2>
+      <p [@pAnimation]="animationBanerState">
+        Web Developer <br />
+        <ng-icon name="bootstrapCodeSlash"></ng-icon>
+      </p>
+    </div>
+  }
+</div>
