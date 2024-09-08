@@ -1,103 +1,85 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AfterViewInit, Component, Input } from '@angular/core';
-import { NgIcon } from '@ng-icons/core';
+import { AfterViewInit, Component } from '@angular/core';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-projects',
-  standalone: true,
-  imports: [
-    NgIcon
-  ],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss',
-  animations: [
-    trigger('projectTitleAnimation', [
-      state('start', style({
-        opacity: 0
-      })),
-      state('end', style({
-        opacity: 1
-      })),
-      transition('start => end', [
-        animate('1s ease-in-out')
-      ]),
-    ]),
-    trigger('projectOneAnimation', [
-      state('start', style({
-        opacity: 0,
-      })),
-      state('end', style({
-        opacity: 1,
-      })),
-      transition('start => end', [
-        animate('1s .3s ease-in-out')
-      ]),
-    ]),
-    trigger('projectTwoAnimation', [
-      state('start', style({
-        opacity: 0,        
-      })),
-      state('end', style({
-        opacity: 1
-      })),
-      transition('start => end', [
-        animate('1s .6s ease-in-out')
-      ]),
-    ]),
-    trigger('projectThreeAnimation', [
-      state('start', style({
-        opacity: 0,
-      })),
-      state('end', style({
-        opacity: 1
-      })),
-      transition('start => end', [
-        animate('1s .9s ease-in-out')
-      ]),
-    ]),
-    trigger('projectFourAnimation', [
-      state('start', style({
-        opacity: 0,
-      })),
-       state('end', style({
-        opacity: 1
-       })),
-       transition('start => end', [
-        animate('1s 1.2s ease-in-out')
-       ]),
-    ]),
-    trigger('projectFiveAnimation', [
-      state('start', style({
-        opacity: 0,
-      })),
-       state('end', style({
-        opacity: 1
-       })),
-       transition('start => end', [
-        animate('1s 1.5s ease-in-out')
-       ]),
-    ]),
-    trigger('projectSixAnimation', [
-      state('start', style({
-        opacity: 0,
-      })),
-       state('end', style({
-        opacity: 1,
-       })),
-       transition('start => end', [
-        animate('1s 1.8s ease-in-out')
-       ]),
-    ]),
-  ]
+  styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent implements AfterViewInit {
-  @Input({ required: true }) animState!: string;
-
-  projectsAnimationState: string = 'start';
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.projectsAnimationState = this.animState;
-    }, 500);
+    gsap.fromTo('.title-project-fade-in', {
+      opacity: 0
+    }, {
+      opacity: 1,
+      ease: 'power2.inOut',
+      duration: 1,
+      scrollTrigger: {
+        trigger: '.title-project-fade-in',
+        start: "top 80%",
+        end: "top 30%",
+        toggleActions: "play none none none"
+      }
+    });
+
+    gsap.fromTo('.first-project-fade-in', {
+      opacity: 0
+    }, {
+      opacity: 1,
+      ease: 'power2.inOut',
+      duration: 1,
+      scrollTrigger: {
+        trigger: '.first-project-fade-in',
+        start: "top 80%",
+        end: "top 30%",
+        toggleActions: "play none none none"
+      }
+    });
+
+    gsap.fromTo('.second-project-fade-in', {
+      opacity: 0
+    }, {
+      opacity: 1,
+      ease: 'power2.inOut',
+      duration: 1,
+      scrollTrigger: {
+        trigger: '.second-project-fade-in',
+        start: "top 80%",
+        end: "top 30%",
+        toggleActions: "play none none none"
+      }
+    });
+
+    gsap.fromTo('.thrith-project-fade-in', {
+      opacity: 0
+    }, {
+      opacity: 1,
+      ease: 'power2.inOut',
+      duration: 1,
+      scrollTrigger: {
+        trigger: '.thrith-project-fade-in',
+        start: "top 80%",
+        end: "top 30%",
+        toggleActions: "play none none none"
+      }
+    });
+
+    gsap.fromTo('.fourth-project-fade-in', {
+      opacity: 0
+    }, {
+      opacity: 1,
+      ease: 'power2.inOut',
+      duration: 1,
+      scrollTrigger: {
+        trigger: '.fourth-project-fade-in',
+        start: "top 80%",
+        end: "top 30%",
+        toggleActions: "play none none none"
+      }
+    });
   }
 }

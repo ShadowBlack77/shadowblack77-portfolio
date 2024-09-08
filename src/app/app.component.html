@@ -1,41 +1,80 @@
-<main>
-  <app-header [currentSection]="whatIsInView" />
-  <section #bannerSection id="banner-section">
-    <app-baner />
-  </section>
-  <section #aboutSection id="about-section" >
-    @defer (on viewport(aboutSection)) {
-      <app-about animState="end" />
-    }
-  </section>
-  <section #serviceSection id="service-section">
-    @defer (on viewport(serviceSection)) {
-      <app-services animState="end" />
-    } 
-  </section>
-  <section #experienceSection id="experience-section">
-    @defer (on viewport(experienceSection)) {
-      <app-experience animState="end" />
-    }
-  </section>
-  <section #cvSection id="cv-section">
-    @defer (on viewport(cvSection)) {
-      <app-cv animState="end" />
-    }
-  </section>
-  <section #projectsSection id="project-section">
-    @defer (on viewport(projectsSection)) {
-      <app-projects animState="end" />
-    }
-  </section>
-  <section #touchSection id="touch-section">
-    @defer (on viewport(touchSection)) {
-      <app-touch animState="end" />
-    }
-  </section>
-  <section #footerSection id="footer-section">
-    @defer (on viewport(footerSection )) {
-      <app-footer animState="end" />
-    }
-  </section>
-</main>
+<div class="navbar-container">
+  <div class="container">
+    <nav class="navbar navbar-expanded-lg px-4">
+      <div class="container-fluid d-flex">
+        <div>
+          <a class="navbar-brand text-light" href="/">ShadowBlack |</a>
+        </div>
+        <div>
+          <ul class="navbar-nav navbar-nav-header">
+            <li class="nav-item mx-2">
+              <a href="/#about-section" class="nav-link nav-link-header">About</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="/#experience-section" class="nav-link nav-link-header">Experience</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="/#projects-section" class="nav-link nav-link-header">Work</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="/#contact-section" class="nav-link nav-link-header">Contact</a>
+            </li>
+            <li class="nav-item ham-menu-btn" role="button" (click)="expandSideMenu()">
+              <div class="ham-box">
+                <div class="bar bg-light"></div>
+                <div class="bar bg-light"></div>
+                <div class="bar bg-light"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="wrapper">
+
+  <div>
+    <section id="about-section" class="component-section fade-in-about">
+      <app-about />
+    </section>
+    <section id="experience-section" class="component-section fade-in-experience">
+      <app-experience />
+    </section>
+    <section id="projects-section" class="component-section fade-in-projects">
+      <app-projects />
+    </section>
+    <section id="contact-section" class="component-section fade-in-contact">
+      <app-contact />
+    </section>
+  </div>
+
+  <aside class="aside-navbar-menu" aria-hidden="true">
+    <div class="navbar navbar-expanded-lg px-4 w-100">
+      <div class="container-fluid d-flex flex-column align-items-center w-100 text-center">
+        <div>
+          <h3 class="text-light">Menu</h3>
+        </div>
+        <div>
+          <ul class="navbar-nav navbar-nav-aside">
+            <li class="nav-item mx-2">
+              <a href="/#about-section" class="nav-link nav-link-aside">About</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="/#experience-section" class="nav-link nav-link-aside">Experience</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="/#projects-section" class="nav-link nav-link-aside">Work</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="/#contact-section" class="nav-link nav-link-aside">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<app-footer />

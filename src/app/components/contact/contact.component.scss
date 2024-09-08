@@ -1,0 +1,22 @@
+.contact-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .lead {
+      color: #ADD8E6;
+    }
+
+    a {
+      color: white;
+      border: 1px solid white;
+    }
+    
+    a:hover {
+      color: #41175e;
+      border: 1px solid #41175e;
+      background-color: #ADD8E6;
+    }
+}

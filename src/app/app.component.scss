@@ -1,71 +1,96 @@
-#about-section {
-  background-color: #01161e;
-  height: 75vh;
+.navbar-container {
+  background-color: #251E48;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 9998;
 }
+.navbar {
+  min-height: 5vh;
 
-#service-section {
-  background-image: url(../assets/backgrounds/services4.jpg);
-  background-position: center;
-  background-size: cover;
-  height: 90vh;
-}
+  .navbar-nav-header {
+    flex-direction: row;
 
-#experience-section {
-  min-height: 80vh;
-  background-color: #01161e;
-  color: #e6e6fa;
-}
+    .nav-link {
+      color: gray;
+    }
 
-#cv-section {
-  width: 100%;
-  height: 300px;
-  background-image: url(../assets/backgrounds/cv.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-#project-section {
-  background-color: #01161e;
-  min-height: 100vh;
-}
-
-#touch-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  padding: 12px 4px;
-  min-height: 25vh;
-  background-color: #124559;
-  color: #e6e6fa;
-  display: flex;
-}
-
-#footer-section {
-  height: 20vh;
-  background-color: #01161e;
-  color:  #e6e6fa;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-@media only screen and (max-width: 810px) {
-  #service-section  {
-    padding: 48px 0;
-    height: auto;
+    .active-header-link {
+      color: white;
+    }
+  
+    .ham-menu-btn {
+      display: none;
+  
+      .ham-box {
+        height: 20px;
+        width: 40px;
+        position: relative;
+        margin: auto;
+        cursor: pointer;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+  
+        .bar{
+          height: 2px; /* Zwiększamy nieco grubość */
+          width: 100%;
+          position: relative;
+        }
+      }
+    }
   }
 }
 
-@media only screen and (min-width: 500px) {
-  #service-section  {
-    background-attachment: fixed;
+.wrapper {
+  // background-image: linear-gradient(180deg, #2c2553,#51357c,#7944a7,#a254d5);
+  background-image: linear-gradient(180deg, #251E48, #41175e);
+
+  .fade-in-about {
+    opacity: 0;
+  }
+
+  aside {
+    display: flex;
+    backdrop-filter: blur(4px);
+    background-color:rgba(65, 23, 94, .5);
+    height: 100%;
+    width: min(75vw, 400px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100vw);
+    z-index: 9999;
+
+    h3 {
+      font-size: 2em;
+    }
+
+    .navbar-nav-aside {
+      .nav-link {
+        color: rgb(206, 206, 206);
+      }
+
+      .active-aside-link {
+        color: white;
+      }
+    }
   }
 }
 
-@media only screen and (min-width: 500px) {
-  #cv-section {
-    background-attachment: fixed;
+@media only screen and (max-width: 768px) {
+  .navbar {
+    .navbar-nav-header {
+      li {
+        display: none;
+      }
+  
+      .ham-menu-btn {
+        display: block;
+      }
+    }
   }
 }

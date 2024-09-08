@@ -1,85 +1,170 @@
-<div id="experience">
-  <div id="experience-content" [@experienceAnimation]="experienceAnimationState">
-    <div id="experience-desc">
-      <h3>Experience</h3>
-      <p>
-        I have been creating websites for over a year. I'm constantly learning new things to always be up to date with technology.
-      </p>
-    </div>
-    <div id="experience-gallery">
-      <div id="icons">
-        <div id="row-one">
-          <div (mouseenter)="showText($event, 1)" (mouseleave)="resetShowText(1)">
-            <img src="../../../assets/icons/html-5-svgrepo-com.svg" alt="HTML5">
-            <p class="technology-name" [class.show]="isShowedText(1)">HTML5</p>
-          </div>
-          <div (mouseenter)="showText($event, 2)" (mouseleave)="resetShowText(2)">
-            <img src="../../../assets/icons/css-3-svgrepo-com.svg" alt="CSS3">
-            <p class="technology-name" [class.show]="isShowedText(2)">CSS3</p>
-          </div>
-          <div (mouseenter)="showText($event, 3)" (mouseleave)="resetShowText(3)">
-            <img src="../../../assets/icons/js-svgrepo-com.svg" alt="JavaScript">
-            <p class="technology-name" [class.show]="isShowedText(3)">JavaScript</p>
-          </div>
-          <div (mouseenter)="showText($event, 4)" (mouseleave)="resetShowText(4)">
-            <img src="../../../assets/icons/typescript-icon-svgrepo-com.svg" alt="TypeScript">
-            <p class="technology-name" [class.show]="isShowedText(4)">TypeScript</p>
-          </div>
-        </div>
-        <div id="row-two">
-          <div (mouseenter)="showText($event, 5)" (mouseleave)="resetShowText(5)">
-            <img src="../../../assets/icons/angular-svgrepo-com.svg" alt="Angular">
-            <p class="technology-name" [class.show]="isShowedText(5)">Angular</p>
-          </div>
-          <div (mouseenter)="showText($event, 6)" (mouseleave)="resetShowText(6)">
-            <img src="../../../assets/icons/tailwind-svgrepo-com.svg" alt="Tailwind">
-            <p class="technology-name" [class.show]="isShowedText(6)">Tailwind</p>
-          </div>
-          <div (mouseenter)="showText($event, 7)" (mouseleave)="resetShowText(7)">
-            <img src="../../../assets/icons/scss-svgrepo-com.svg" alt="Scss">
-            <p class="technology-name" [class.show]="isShowedText(7)">Scss</p>
-          </div>
-          <div (mouseenter)="showText($event, 8)" (mouseleave)="resetShowText(8)">
-            <img src="../../../assets/icons/bootstrap-svgrepo-com.svg" alt="Bootstrap">
-            <p class="technology-name" [class.show]="isShowedText(8)">Bootstrap</p>
-          </div>
-        </div>
-        <div id="row-three">
-          <div (mouseenter)="showText($event, 9)" (mouseleave)="resetShowText(9)">
-            <img src="../../../assets/icons/dotnet-svgrepo-com.svg" alt="ASP.NET">
-            <p class="technology-name" [class.show]="isShowedText(9)">ASP.NET</p>
-          </div>
-          <div (mouseenter)="showText($event, 10)" (mouseleave)="resetShowText(10)">
-            <img src="../../../assets/icons/firebase-svgrepo-com.svg" alt="Firebase">
-            <p class="technology-name" [class.show]="isShowedText(10)">Firebase</p>
-          </div>
-          <div (mouseenter)="showText($event, 11)" (mouseleave)="resetShowText(11)">
-            <img src="../../../assets/icons/postgresql-svgrepo-com.svg" alt="PostgreSQL">
-            <p class="technology-name" [class.show]="isShowedText(11)">PostgreSQL</p>
-          </div>
-          <div (mouseenter)="showText($event, 12)" (mouseleave)="resetShowText(12)">
-            <img src="../../../assets/icons/mysql-logo-svgrepo-com.svg" alt="MySQL">
-            <p class="technology-name" [class.show]="isShowedText(12)">MySQL</p>
-          </div>
-        </div>
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse g-5 py-5">
+    <div class="col-lg-6">
+      <div>
+        <h2 class="display-5 fw-bold lh-1 mb-3 text-light">Experience</h2>
       </div>
-      <div id="more-experience">
-        <div id="more-experience-text-block">
-          <div id="more-experience-title">
-            <h2>More About Experience</h2>
-          </div>
-          <div id="more-experience-desc">
-            <p>
-              <b>Archman Navigaotr</b> - Working with the Archman Navigaotr to build applications for companies
-            </p>
-          </div>
-        </div>
-        <div id="selected-projects">
-          <a href="/#project-section">
-            Selected Projects
-          </a>
-        </div>
+      <div>
+        <p class="lead ">
+          I have been continuously coding for two years, both as a hobby and professionally, so I’m excited to share my experience below!
+        </p>
+      </div>
+      <div class="py-4">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div>
+              <div>
+                <p class="date">
+                  <b>
+                    <i>february 2023 - present</i>
+                  </b>
+                </p>
+              </div>
+              <div>
+                <p class="lead fs-5">Freelancer</p>
+                <p class="text-light">
+                  Developing web, mobile, and desktop applications for individuals and businesses, including collaborations with companies such as PHU Agma Mysłowice and GodBud.
+                </p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p class="date">
+                  <b>
+                    <i>may 2023 - january 2024</i>
+                  </b>
+                </p>
+              </div>
+              <div>
+                <p class="lead fs-5">MMRC Sp. z o.o. / Żeltech Sp. z o.o. Żywiec</p>
+                <p class="text-light">
+                  Backend programmer, creating extensive database queries using T-SQL. Creating the appearance of website applications using JavaScript
+                </p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p class="date">
+                  <b>
+                    <i>september 2022 - september 2023</i>
+                  </b>
+                </p>
+              </div>
+              <div>
+                <p class="lead fs-5">PHU AGMA Mysłowice</p>
+                <p class="text-light">
+                  Work as an intern and develop applications independently. Create desktop and mobile applications that streamline service documentation and improve communication between management and employees.
+                </p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p class="date">
+                  <b>
+                    <i>october - september 2021</i>
+                  </b>
+                </p>
+              </div>
+              <div>
+                <p class="lead fs-5">Erasmums +</p>
+                <p class="text-light">
+                  Internships as part of the Erasmus+ project, design and creation of internet applications.
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
+    <div class="col-lg-6">
+      <div>
+        <h1 class="display-5 fw-bold lh-1 mb-3 text-light">Skills</h1>
+      </div>
+      <div>
+        <p class="lead ">
+          When developing applications, I personally handle both the backend and frontend, utilizing a variety of technologies such as...
+        </p>
+      </div>
+      <div class="py-4">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div style="display: flex; align-items: center;">
+              <div class="px-2">
+                <img src="./assets/skills/angular.svg" alt="angular" width="48">
+              </div>
+              <div class="px-2">
+                <p class="text-light" style="margin: 0; padding: 0;">
+                  <i>For Web, Mobile & Desktop Frontend</i>
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div style="display: flex; align-items: center;">
+              <div class="px-2">
+                <img src="./assets/skills/bootstrap.svg" alt="bootstrap" width="48">
+              </div>
+              <div class="px-2">
+                <p class="text-light" style="margin: 0; padding: 0;">
+                  <i>For UI Design</i>
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div style="display: flex; align-items: center;">
+              <div class="px-2">
+                <img src="./assets/skills/dotnet.svg" alt="dotnet" width="48">
+              </div>
+              <div class="px-2">
+                <p class="text-light" style="margin: 0; padding: 0;">
+                  <i>For Backend, Server & Apis</i>
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div style="display: flex; align-items: center;">
+              <div class="px-2">
+                <img src="./assets/skills/postgresql.svg" alt="postgresql" width="48">
+              </div>
+              <div class="px-2">
+                <p class="text-light" style="margin: 0; padding: 0;">
+                  <i>For SQL Database</i>
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div style="display: flex; align-items: center;">
+              <div class="px-2">
+                <img src="./assets/skills/firebase.svg" alt="firebase" width="48">
+              </div>
+              <div class="px-2">
+                <p class="text-light" style="margin: 0; padding: 0;">
+                  <i>For NoSQL Database</i>
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div style="display: flex; align-items: center;">
+              <div class="px-2">
+                <img src="./assets/skills/azure.svg" alt="azure" width="48">
+              </div>
+              <div class="px-2">
+                <p class="text-light" style="margin: 0; padding: 0;">
+                  <i>For hosting & Cloud Services</i>
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="lead ">
+          And much more! For example, I also use SCSS, along with extensive JavaScript and TypeScript. For mobile apps, I use Ionic, and for desktop applications, I use Tauri.
+        </p>
+      </div>
   </div>
 </div>

@@ -1,210 +1,252 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { BanerComponent } from './components/baner/baner.component';
-import { AboutComponent } from './components/about/about.component';
-import { ServicesComponent } from './components/services/services.component';
-import { ExperienceComponent } from './components/experience/experience.component';
-import { TouchComponent } from './components/touch/touch.component';
-import { CvComponent } from './components/cv/cv.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { ProjectsComponent } from './components/projects/projects.component';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { 
-  bootstrapGithub, 
-  bootstrapDiscord, 
-  bootstrapLinkedin, 
-  bootstrapFacebook,
-  bootstrapLaptop,
-  bootstrapPhone,
-  bootstrapDatabaseCheck,
-  bootstrapCodeSlash,
-  bootstrapSend,
-  bootstrapShareFill
-} from '@ng-icons/bootstrap-icons';
-
-import { tdesignInternet } from '@ng-icons/tdesign-icons';
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    BanerComponent,
-    AboutComponent,
-    ServicesComponent,
-    ExperienceComponent,
-    CvComponent,
-    TouchComponent,
-    FooterComponent,
-    ProjectsComponent,
-    NgIconComponent,
-  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  viewProviders: [provideIcons({ 
-    bootstrapGithub, 
-    bootstrapDiscord, 
-    bootstrapLinkedin, 
-    bootstrapFacebook, 
-    bootstrapLaptop,
-    bootstrapPhone,
-    bootstrapDatabaseCheck,
-    bootstrapCodeSlash,
-    bootstrapSend,
-    bootstrapShareFill,
-    tdesignInternet
-  })]
+  styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  @ViewChild('bannerSection', { read: ElementRef, static: false }) exploreSection!: ElementRef;
-  @ViewChild('aboutSection', { read: ElementRef, static: false }) aboutMeSection!: ElementRef;
-  @ViewChild('serviceSection', { read: ElementRef, static: false }) servicesSection!: ElementRef;
-  @ViewChild('experienceSection', { read: ElementRef, static: false }) experienceSection!: ElementRef;
-  @ViewChild('projectsSection', { read: ElementRef, static: false }) projectsSection!: ElementRef;
-  @ViewChild('touchSection', { read: ElementRef, static: false }) touchSection!: ElementRef;
+export class AppComponent implements AfterViewInit {
 
-  whatIsInView: string = 'explore';
+  isMenuOpen: boolean = false;
 
-  checkIsExploreElementInViewport() {
-    const element = this.exploreSection.nativeElement;
-    
-    const rect = element.getBoundingClientRect();
+  ngAfterViewInit(): void {
+    const sections = document.querySelectorAll('.component-section');
 
-    const isInViewport = 
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+    const navHeaderLinks = document.querySelectorAll('.nav-link-header');
+    const navAsideLinks = document.querySelectorAll('.nav-link-aside');
 
-    if (isInViewport) {   
-      this.whatIsInView = 'explore';
-    }
-  }
+    sections.forEach((section, index) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => this.setActiveHeaderLink(index, navHeaderLinks),
+        onEnterBack: () => this.setActiveHeaderLink(index, navHeaderLinks)
+      })
+    });
 
-  checkIsAboutElementInViewport() {
-    const element = this.aboutMeSection.nativeElement;    
-    const rect = element.getBoundingClientRect();
+    sections.forEach((section, index) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => this.setActiveAsideLink(index, navAsideLinks),
+        onEnterBack: () => this.setActiveAsideLink(index, navAsideLinks)
+      })
+    });
 
-    const isInViewport = 
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+    gsap.to('.fade-in-about', {
+      opacity: 1,
+      ease: 'power2.inOut',
+      duration: 1
+    });
 
-    if (isInViewport) {   
-      this.whatIsInView = 'about';
-    }
-  }
-
-  checkIsServicesElementInViewport() {
-    try {
-      const element = this.servicesSection.nativeElement.querySelector('#first-element');
-      const lastElement = this.servicesSection.nativeElement.querySelector('#last-element');
-
-      const rect = element.getBoundingClientRect();
-      const lastRect = lastElement.getBoundingClientRect();
-
-      const isInViewport = 
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth);
-
-      const isInLastViewport = 
-        lastRect.top >= 0 &&
-        lastRect.left >= 0 &&
-        lastRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        lastRect.right <= (window.innerWidth || document.documentElement.clientWidth);
-
-      if (isInViewport || isInLastViewport) {
-        this.whatIsInView = 'services'
+    gsap.fromTo('.fade-in-experience', {
+      opacity: 0
+    }, {
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.inOut',
+      scrollTrigger: {
+        trigger: '.fade-in-experience',
+        start: "top 80%",
+        end: "top 30%",
+        toggleActions: "play none none none"
       }
-    } catch(err) {
+    });
 
-    }
-  }
-
-  checkIsExperienceElementInViewport() {
-    try {
-      const element = this.experienceSection.nativeElement.querySelector('#experience-desc');
-      const lastElement = this.experienceSection.nativeElement.querySelector('#more-experience-desc');
-
-      const rect = element.getBoundingClientRect();
-      const lastRect = lastElement.getBoundingClientRect();
-
-      const isInViewport = 
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth);
-
-      const isLastInViewport = 
-        lastRect.top >= 0 &&
-        lastRect.left >= 0 &&
-        lastRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        lastRect.right <= (window.innerWidth || document.documentElement.clientWidth);
-
-      if (isInViewport || isLastInViewport) {  
-        this.whatIsInView = 'experience';
+    gsap.fromTo('.fade-in-contact', {
+      opacity: 0
+    }, {
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.inOut',
+      scrollTrigger: {
+        trigger: '.fade-in-contact',
+        start: "top 80%",
+        end: "top 30%",
+        toggleActions: "play none none none"
       }
-    } catch(err) {
-
-    }
+    });
   }
 
-  checkIsProjectsElementInViewport() {
-    try {
-      const element = this.projectsSection.nativeElement.querySelector('#project-header');
-      const lastElement = this.projectsSection.nativeElement.querySelector('#projects-btn');
+  setActiveHeaderLink(index: number, navLinks: NodeListOf<Element>) {
+    navLinks.forEach(link => link.classList.remove('active-header-link'));
+    navLinks[index].classList.add('active-header-link');
+  }
 
-      const rect = element.getBoundingClientRect();
-      const lastRect = lastElement.getBoundingClientRect();
+  setActiveAsideLink(index: number, navLinks: NodeListOf<Element>) {
+    navLinks.forEach(link => link.classList.remove('active-aside-link'));
+    navLinks[index].classList.add('active-aside-link');
+  }
 
-      const isInViewport = 
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+  public expandSideMenu(): void {
+    if (!this.isMenuOpen) {
+      gsap.to('.aside-navbar-menu', {
+        translateX: '0vw',
+        duration: 0.5,
+        ease: 'power2.in'
+      });
 
-      const isLastInViewport = 
-        lastRect.top >= 0 &&
-        lastRect.left >= 0 &&
-        lastRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        lastRect.right <= (window.innerWidth || document.documentElement.clientWidth);
+      gsap.to(".bar:nth-child(1)", { 
+        top: 8, 
+        duration: 0.3,
+        ease: 'power2.InOut'
+      })
+        .then(() => {
+          gsap.to(".bar:nth-child(1)", { 
+            rotation: 45, 
+            duration: 0.3,
+            ease: 'power2.InOut'
+          })
+        });
+      gsap.to(".bar:nth-child(2)", { 
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.InOut'
+      });
+      gsap.to(".bar:nth-child(3)", { 
+        top: -8,
+        duration: 0.3,
+        ease: 'power2.InOut'
+      })
+        .then(() => {
+          gsap.to(".bar:nth-child(3)", {
+            rotation: -45,  
+            duration: 0.3,
+            ease: 'power2.InOut'
+          });
+        });
+    } else {
+      gsap.to('.aside-navbar-menu', {
+        translateX: '-100vw',
+        duration: 0.5,
+        ease: 'power2.Out'
+      });
 
-      if (isInViewport || isLastInViewport) {  
-        this.whatIsInView = 'projects';
+      gsap.to(".bar:nth-child(1)", { 
+        rotation: 0, 
+        duration: 0.3,
+        ease: 'power2.InOut'
+      })
+        .then(() => {
+          gsap.to(".bar:nth-child(1)", { 
+            top: 0, 
+            duration: 0.3,
+            ease: 'power2.InOut'
+          });
+        });
+      gsap.to(".bar:nth-child(2)", {
+        opacity: 1, 
+        duration: 0.3,
+        ease: 'power2.InOut'
+      });
+      gsap.to(".bar:nth-child(3)", { 
+        rotation: 0, 
+        duration: 0.3,
+        ease: 'power2.InOut'
+      })
+        .then(() => {
+          gsap.to(".bar:nth-child(3)", { 
+            top: 0, 
+            duration: 0.3,
+            ease: 'power2.InOut'
+          });
+        });
+    }
+
+    this.isMenuOpen = !this.isMenuOpen
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeMenu(event: Event) {
+    if (this.isMenuOpen) {
+      if (!event.target || !(event.target as HTMLElement).closest('.aside-navbar-menu') && !(event.target as HTMLElement).closest('.ham-box')) {
+        gsap.to('.aside-navbar-menu', {
+          translateX: '-100vw',
+          duration: 0.5,
+          ease: 'power2.Out'
+        });
+  
+        gsap.to(".bar:nth-child(1)", { 
+          rotation: 0, 
+          duration: 0.3,
+          ease: 'power2.InOut'
+        })
+          .then(() => {
+            gsap.to(".bar:nth-child(1)", { 
+              top: 0, 
+              duration: 0.3,
+              ease: 'power2.InOut'
+            });
+          });
+        gsap.to(".bar:nth-child(2)", {
+          opacity: 1, 
+          duration: 0.3,
+          ease: 'power2.InOut'
+        });
+        gsap.to(".bar:nth-child(3)", { 
+          rotation: 0, 
+          duration: 0.3,
+          ease: 'power2.InOut'
+        })
+          .then(() => {
+            gsap.to(".bar:nth-child(3)", { 
+              top: 0, 
+              duration: 0.3,
+              ease: 'power2.InOut'
+            });
+          });
+  
+        this.isMenuOpen = false;
       }
-    } catch(err) {
-      
     }
   }
 
-  checkIsTouchElementInViewport() {
-    const element = this.touchSection.nativeElement;
-    const rect = element.getBoundingClientRect();
-
-    const isInViewport = 
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth);
-
-    if (isInViewport) {  
-      this.whatIsInView = 'touch';
+  @HostListener('document:scroll')
+  onScorll() {
+    if (this.isMenuOpen) {
+      gsap.to('.aside-navbar-menu', {
+        translateX: '-100vw',
+        duration: 0.5,
+        ease: 'power2.Out'
+      });
+  
+      gsap.to(".bar:nth-child(1)", { 
+        rotation: 0, 
+        duration: 0.3,
+        ease: 'power2.InOut'
+      })
+        .then(() => {
+          gsap.to(".bar:nth-child(1)", { 
+            top: 0, 
+            duration: 0.3,
+            ease: 'power2.InOut'
+          });
+        });
+      gsap.to(".bar:nth-child(2)", {
+        opacity: 1, 
+        duration: 0.3,
+        ease: 'power2.InOut'
+      });
+      gsap.to(".bar:nth-child(3)", { 
+        rotation: 0, 
+        duration: 0.3,
+        ease: 'power2.InOut'
+      })
+        .then(() => {
+          gsap.to(".bar:nth-child(3)", { 
+            top: 0, 
+            duration: 0.3,
+            ease: 'power2.InOut'
+          });
+        });
+  
+      this.isMenuOpen = false;
     }
-  }
-
-  @HostListener('window:scroll')
-  onScroll() {
-    this.checkIsExploreElementInViewport();
-    this.checkIsAboutElementInViewport();
-    this.checkIsServicesElementInViewport();
-    this.checkIsExperienceElementInViewport();
-    this.checkIsProjectsElementInViewport();
-    this.checkIsTouchElementInViewport();
   }
 }

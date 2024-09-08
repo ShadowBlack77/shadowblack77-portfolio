@@ -1,37 +1,10 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about',
-  standalone: true,
-  imports: [],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.scss',
-  animations: [
-    trigger('aboutAnimation', [
-      state('start', style({
-        opacity: 0
-      })),
-      state('end', style({
-        opacity: 1
-      })),
-      transition('start => end', [
-        animate('1s ease-in-out')
-      ]),
-    ])
-  ]
+  styleUrl: './about.component.scss'
 })
-export class AboutComponent implements AfterViewInit {
-  @Input({ required: true }) animState!: string;
+export class AboutComponent {
 
-  currentYear: Date = new Date();
-  currentYearsOld = this.currentYear.getFullYear() - 2004;
-
-  aboutAnimState: string = 'start';
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.aboutAnimState = this.animState;
-    }, 500);
-  }
 }
